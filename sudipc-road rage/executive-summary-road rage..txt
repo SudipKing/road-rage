@@ -1,0 +1,38 @@
+﻿Assignment name: Road Rage
+TCSS 305 C: Programming Practicum
+
+
+Name: Sudip Chaudhary
+UWNetID: sudipc
+
+
+Assignment Overview:
+The purpose of the Road Rage project was to design and implement a simulation of vehicles moving around a map using object-oriented principles like inheritance, polymorphism, and abstraction. Each vehicle behaves differently based on rules defined by its class, and the simulation tracks how they move, collide, and revive over time. This assignment was mainly about understanding how to structure reusable and maintainable code through an abstract base class (AbstractVehicle) and multiple subclasses (Car, Truck, Bicycle, Taxi, Human, Atv) that define unique logic. It also involved writing and running JUnit tests to verify functionality, collisions, movement logic, and overall correctness of the simulation. 
+
+Technical Impression:
+To complete the assignment, I implemented each vehicle class by extending AbstractVehicle, making sure every one of them followed the specific terrain and traffic light rules. I also added proper Javadoc documentation for clarity and consistency. Writing the test files took some time, especially learning to use JUnit 5 correctly with assertions and setup methods.
+One of the biggest challenges was handling IOExceptions when running RoadRageMain.java. The program couldn’t find city_map1.txt, which I later realized was because IntelliJ wasn't treating the main class as runnable. Understanding how Java’s file loading works within a project structure was frustrating at first. Another issue was making sure collision and revival logic worked properly without breaking other behaviors. Sometimes vehicles stayed dead forever due to incorrect poke() logic.
+The project also tested patience with debugging. The inheritance hierarchy was powerful but tricky since small logic mistakes in AbstractVehicle affected every subclass. Despite that, I gained a better understanding of polymorphism and code reusability. I still feel more practice with debugging large multi-class projects would help.
+
+
+Unresolved problems in my submission:
+Some test files occasionally fail depending on random direction outputs.
+Unsure if the chooseDirection() logic in a few vehicles fully matches the intended behavior.
+testChooseDirectionOnGrassNearCrosswalk and testChooseDirectionSurroundedByGrass still fail in HumanTest, i couldnt figure out how to pass it.
+There might be minor formatting inconsistencies between test classes.
+
+Citations and Collaborations:
+Used Copilot for JavaDoc help to make it easier describing everything in so many classes.
+
+Extra credit:
+Atv: chooseDirection() selects a random valid passable direction. A single-return helper method getValidDirections() generates the list of passable directions.
+
+Truck: chooseDirection() selects the first valid street direction. A single-return helper method getStreetDirections() ensures only drivable terrain is considered.
+
+Human: chooseDirection() selects the first walkable direction favoring grass and crosswalks. The helper method getWalkableDirections() is single-return.
+
+Bicycle: chooseDirection() selects the first valid street-based direction according to light rules. Helper method getStreetDirections() is single-return.
+
+Questions:
+How can I handle random behavior in tests so that results remain consistent every run?
+Is there a better approach to manage vehicle-specific direction logic without so much repeated code in subclasses?
